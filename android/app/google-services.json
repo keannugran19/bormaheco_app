@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "144463087101",
+    "project_id": "granapp-6dcc0",
+    "storage_bucket": "granapp-6dcc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144463087101:android:54c5c015708e3174554594",
+        "android_client_info": {
+          "package_name": "com.example.gran_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgugLr0E7KH-KZOmAJzR00XZpWp6pp7gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
