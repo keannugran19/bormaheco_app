@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gran_app/components/login_textfield.dart';
 import 'package:gran_app/components/my_button.dart';
 import 'package:gran_app/components/square_tile.dart';
+import 'package:gran_app/components/color.dart';
 
 import '../services/auth_service.dart';
 
@@ -21,16 +22,55 @@ class _LoginPageState extends State<LoginPage> {
 
   // sign-in
   void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text,
-      password: passwordController.text,
+    // show loading circle
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+
+    // try sign-in
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      //remove the loading circle
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      //remove the loading circle
+      Navigator.pop(context);
+
+      // show error if wrong password or email
+      showErrorMessage(e.code);
+    }
+  }
+
+// wrong email message
+  void showErrorMessage(String message) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.red,
+          title: Center(
+            child: Text(
+              message,
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+            ),
+          ),
+        );
+      },
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: colorScheme.background,
       body: SafeArea(
           child: Center(
         child: SingleChildScrollView(
@@ -40,20 +80,20 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 50),
 
               // logo
-              const Icon(
-                Icons.photo_camera,
-                size: 100,
+              const Image(
+                image: AssetImage(
+                    'lib/images/bormaheco.png'), // Replace with the path to your image asset
+                width: 200,
+                height: 200,
               ),
-
-              const SizedBox(height: 50),
 
               // text
               Text(
-                'Welcome to my gallery app!',
+                'Login to Bormaheco Inc.',
                 style: TextStyle(
-                  color: Colors.grey[700],
-                  fontSize: 16,
-                ),
+                    color: colorScheme.onBackground,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 25),
@@ -65,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: false,
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 11),
 
               // password textfield
               MyLoginTextfield(
@@ -84,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       'Forgot Password?',
-                      style: TextStyle(color: Colors.grey[600]),
+                      style: TextStyle(color: colorScheme.onBackground),
                     )
                   ],
                 ),
@@ -108,20 +148,20 @@ class _LoginPageState extends State<LoginPage> {
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
-                        color: Colors.grey[400],
+                        color: colorScheme.onBackground,
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Text(
                         'or continue with',
-                        style: TextStyle(color: Colors.grey[400]),
+                        style: TextStyle(color: colorScheme.onBackground),
                       ),
                     ),
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
-                        color: Colors.grey[400],
+                        color: colorScheme.onBackground,
                       ),
                     ),
                   ],
@@ -137,7 +177,13 @@ class _LoginPageState extends State<LoginPage> {
                   // google
                   SquareTile(
                       onTap: () => AuthService().signInWithGoogle(),
-                      imagePath: 'lib/images/googleLogo.png')
+                      imagePath: 'lib/images/googleLogo.png'),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  SquareTile(
+                      onTap: () => AuthService().signInWithGoogle(),
+                      imagePath: 'lib/images/facebook.png')
                 ],
               ),
 
@@ -148,15 +194,16 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Text(
                     'Not a member?',
-                    style: TextStyle(color: Colors.grey[700]),
+                    style: TextStyle(color: colorScheme.onBackground),
                   ),
                   const SizedBox(width: 4),
                   GestureDetector(
                     onTap: widget.onTap,
-                    child: const Text(
+                    child: Text(
                       'Register now',
                       style: TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.bold),
+                          color: colorScheme.tertiary,
+                          fontWeight: FontWeight.bold),
                     ),
                   )
                 ],
