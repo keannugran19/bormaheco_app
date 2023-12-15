@@ -158,7 +158,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     width: 20,
                   ),
                   SquareTile(
-                      onTap: () => AuthService().signInWithGoogle(),
+                      onTap: () => AuthService().signInWithFacebook(),
                       imagePath: 'lib/images/facebook.png')
                 ],
               ),

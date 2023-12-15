@@ -182,7 +182,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: 20,
                   ),
                   SquareTile(
-                      onTap: () => AuthService().signInWithGoogle(),
+                      onTap: () => AuthService().signInWithFacebook(),
                       imagePath: 'lib/images/facebook.png')
                 ],
               ),
