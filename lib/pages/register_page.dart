@@ -79,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     fontWeight: FontWeight.bold),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
 
               // email textfield
               MyLoginTextfield(
@@ -106,7 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 obscureText: true,
               ),
 
-              const SizedBox(height: 25),
+              const SizedBox(height: 15),
 
               // sign-up
               MyButton(
@@ -114,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 onTap: signUserUp,
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
 
               // divider 'continue with'
               Padding(
@@ -144,7 +144,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
 
               // google sign-in
               Row(
@@ -163,7 +163,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
