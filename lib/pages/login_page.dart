@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
               // logo
               const Image(
                 image: AssetImage(
-                    'lib/images/bormaheco.png'), // Replace with the path to your image asset
+                    'assets/images/bormaheco.png'), // Replace with the path to your image asset
                 width: 200,
                 height: 200,
               ),
@@ -177,13 +177,13 @@ class _LoginPageState extends State<LoginPage> {
                   // google
                   SquareTile(
                       onTap: () => AuthService().signInWithGoogle(),
-                      imagePath: 'lib/images/googleLogo.png'),
+                      imagePath: 'assets/images/googleLogo.png'),
                   const SizedBox(
                     width: 20,
                   ),
                   SquareTile(
                       onTap: () => AuthService().signInWithFacebook(),
-                      imagePath: 'lib/images/facebook.png')
+                      imagePath: 'assets/images/facebook.png')
                 ],
               ),
 

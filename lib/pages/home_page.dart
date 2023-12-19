@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gran_app/screens/home/components/search_field.dart';
 import 'package:gran_app/screens/home/components/categories.dart';
 import 'package:gran_app/screens/home/components/custom_app_bar.dart';
-import 'package:gran_app/screens/home/components/houses.dart';
+import 'package:gran_app/screens/home/components/products.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
         const SearchField(),
         SizedBox(height: MediaQuery.of(context).size.height * 0.01),
         Categories(),
-        Houses(),
+        Products(),
       ]),
     );
   }

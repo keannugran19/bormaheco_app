@@ -1,1 +1,1 @@
-const double appPadding = 30.0;
+const double appPadding = 20.0;

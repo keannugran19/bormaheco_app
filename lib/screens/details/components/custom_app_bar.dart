@@ -1,6 +1,7 @@
 import 'package:gran_app/constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gran_app/constants/colors..dart';
+import 'package:gran_app/components/color.dart';
 
 class CustomAppBar extends StatelessWidget {
   @override
@@ -26,8 +27,8 @@ class CustomAppBar extends StatelessWidget {
                 height: 50,
                 width: 50,
                 decoration: BoxDecoration(
-                  color: darkBlue,
-                  border: Border.all(color: darkBlue),
+                  color: colorScheme.tertiary,
+                  border: Border.all(color: colorScheme.tertiary),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: const Icon(
@@ -40,7 +41,7 @@ class CustomAppBar extends StatelessWidget {
               height: 50,
               width: 50,
               decoration: BoxDecoration(
-                color: darkBlue,
+                color: colorScheme.tertiary,
                 borderRadius: BorderRadius.circular(15),
               ),
               child: const Icon(

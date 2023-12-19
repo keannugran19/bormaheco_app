@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:gran_app/model/house.dart';
+import 'package:gran_app/model/product.dart';
 import 'package:gran_app/screens/details/components/carousel_images.dart';
 import 'package:gran_app/screens/details/components/custom_app_bar.dart';
-import 'package:gran_app/screens/details/components/house_details.dart';
+import 'package:gran_app/screens/details/components/product_details.dart';
 
 class DetailsScreen extends StatefulWidget {
-  final House house;
+  final product products;
 
-  const DetailsScreen({Key? key, required this.house}) : super(key: key);
+  const DetailsScreen({Key? key, required this.products}) : super(key: key);
 
   @override
   _DetailsScreenState createState() => _DetailsScreenState();
@@ -21,14 +21,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
         children: [
           Stack(
             children: [
-              CarouselImages(widget.house.moreImagesUrl),
+              CarouselImages(widget.products.moreImagesUrl),
               CustomAppBar(),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          HouseDetails(widget.house),
+          ProductDetails(widget.products),
         ],
       ),
     );

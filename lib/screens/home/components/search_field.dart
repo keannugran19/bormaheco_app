@@ -28,7 +28,7 @@ class SearchField extends StatelessWidget {
               ),
             ),
             border: InputBorder.none,
-            hintText: "Search for House...",
+            hintText: "Search...",
           ),
         ),
       ),
